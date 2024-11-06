@@ -1,0 +1,14 @@
+.sticky-image {
+  width: 100%;
+  position: relative;
+}
+
+
+.sticky-image.sticky{
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+.fa-sticky-image {
+    position: relative;
+}
