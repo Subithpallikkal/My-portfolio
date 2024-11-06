@@ -3,8 +3,26 @@ import React, { useState, useEffect } from 'react';
 const GlowingCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Check if the device is a touch device or if the screen is small
+    const checkTouchDevice = () => {
+      const isTouch = 'ontouchstart' in window || window.matchMedia('(max-width: 768px)').matches;
+      setIsTouchDevice(isTouch);
+    };
+
+    checkTouchDevice();
+    window.addEventListener('resize', checkTouchDevice);
+
+    return () => {
+      window.removeEventListener('resize', checkTouchDevice);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isTouchDevice) return; // Disable cursor effects on touch devices
+
     const onMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -21,7 +39,9 @@ const GlowingCursor = () => {
       document.removeEventListener('mouseenter', onMouseEnter);
       document.removeEventListener('mouseleave', onMouseLeave);
     };
-  }, []);
+  }, [isTouchDevice]);
+
+  if (isTouchDevice) return null; // Don't render the custom cursor on touch devices
 
   return (
     <>
