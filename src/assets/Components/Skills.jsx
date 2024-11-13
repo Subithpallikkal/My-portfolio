@@ -11,14 +11,13 @@ import C from "../Icons/c.png";
 import Netlify from "../Icons/netlify.png";
 import Vscode from "../Icons/vscode.png";
 import Reactjs from "../Icons/logos_react.png";
-import Postman from '../Icons/postman.png'
+import Postman from '../Icons/postman.png';
 import { useTheme } from '../Context/ThemeContext';
 
 const Skills = () => {
+  const { isDarkMode } = useTheme();
+  const textColor = !isDarkMode ? 'text-white' : 'text-black';
 
-    const {isDarkMode} = useTheme();
-    const textColor = !isDarkMode ? 'text-white':'text-black';
-    
   const skills = [
     { name: 'React.js', icon: Reactjs },
     { name: 'HTML', icon: Html },
@@ -35,16 +34,20 @@ const Skills = () => {
   ];
 
   return (
-    <section className={`${textColor}  lg:pl-12   lg:min-h-screen lg:w-full  font-mplus`} >
-      <div className="container   px-4 flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold pb-4">My Tech Stack</h1>
-        <p className=' text-sm '>Technologies I've been working with recently</p>
-        <div className="wrapper">
-          <div className="items grid grid-cols-6 p-24">
+    <section
+      className={`${textColor} lg:pl-12 sm:pr-6 lg:min-h-screen lg:w-full  font-mplus py-32 lg:py-8 flex justify-center`}
+    >
+      <div className="container lg:px-4 flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold lg:pb-4">My Tech Stack</h1>
+        <p className="text-sm lg:mb-8 mt-4">Technologies I've been working with recently</p>
+        <div className="wrapper sm:pt-32">
+          <div
+            className="items grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xs:gap-4  lg:gap-6 lg:p-6"
+          >
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className="item"
+                className=" item w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-cover bg-center"
                 tabIndex="0"
                 style={{
                   backgroundImage: `url(${skill.icon})`, // Use the skill's icon directly

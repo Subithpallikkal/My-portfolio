@@ -24,12 +24,12 @@ const Contact = () => {
   
 
   return (
-    <section className={` ${textColor} min-h-screen p-10 font-mplus`} >
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-8 text-center">Get in Touch</h1>
+    <section className={` ${textColor} min-h-screen flex justify-center font-mplus`} >
+      <div className="container flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold text-center py-14 ">Get in Touch</h1>
         <form 
           onSubmit={handleSubmit} 
-          className="max-w-lg p-20  shadow-lg border"
+          className="p-10 w-full   shadow-lg border"
         >
           <div className="mb-6">
             <label htmlFor="name" className="block text-lg font-semibold mb-2">

@@ -12,13 +12,22 @@ import BackToTop from './assets/Components/BackToTop'; // Import your BackToTop 
 import "./App.css"
 import GlowingCursor from './assets/Components/GlowingCursor';
 
+
+
+
 const App = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 780) {
-      setShowSidebar(true);
+
+    if (window.innerWidth >= 768) {
+      if (window.scrollY > 780) {
+        setShowSidebar(true);
+      } else {
+        setShowSidebar(false);
+      }
     } else {
+      // On smaller screens, ensure the sidebar is not shown
       setShowSidebar(false);
     }
   };
@@ -34,8 +43,8 @@ const App = () => {
     <ThemeProvider>
       <GlowingCursor />
       {showSidebar ? <Sidebar /> : <Header />}
-      <div className={`transition-all duration-300 ${showSidebar ? 'ml-0 ' : 'ml-0'}`}>
-        <div className=''>
+      <div  className={`transition-all duration-300 ${showSidebar ? 'ml-0 ' : 'ml-0 '}`}>
+        <div>
           <div className='sticky-image '>
         <Hero />
           </div>

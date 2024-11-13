@@ -11,7 +11,7 @@ const Sidebar = () => {
       initial={{ x: 250 }}
       animate={{ x: 0 }}
       transition={{ type: 'spring', stiffness: 300 }}
-      className={`fixed top-0 left-0 h-full w-20  ${textColor} flex flex-col justify-center items-center font-mplus`} style={{zIndex:1}}
+      className={`fixed top-0 left-0 h-full w-20  ${textColor} sm:hidden md:block pt-32  flex flex-col justify-center items-center font-mplus`} style={{zIndex:1}}
     >
       <div className="mt-8 flex flex-col items-center space-y-24  font-bold text-xl">
         <a href="#contact" className="block hover:text-gray-400 transform -rotate-90">Contact</a>

@@ -57,7 +57,7 @@ const GlowingCursor = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-gradient-radial from-white to-transparent animate-glow" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-white rounded-full shadow-glow" />
       </div>
-      <style jsx global>{`
+      <style jsx="true" global="true">{`
         @keyframes glow {
           0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
           100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.8; }

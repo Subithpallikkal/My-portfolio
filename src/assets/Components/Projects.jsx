@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTheme } from '../Context/ThemeContext';
+import Card from './Card';
+import Shoe from '/Shoe.jpg'
 
 const Projects = () => {
     const { isDarkMode } = useTheme();
@@ -18,7 +20,7 @@ const Projects = () => {
             name: "Walksus",
             details:
                 "An E-commerce web application for shoes with product listing, wishlist, cart, and secure checkout. It includes user profiles, order tracking, size charts, and comprehensive admin tools for managing users, categories, products, and inventory.",
-            image: "https://dummyimage.com/400x200/000/fff&text=Walksus",
+            image: {Shoe}
         },
         {
             name: "Al Mango - Food Menu Web App",
@@ -35,10 +37,12 @@ const Projects = () => {
     ];
 
     return (
-        <section className={`${textColor} py-10 min-h-screen w-full font-mplus flex flex-col justify-center items-center`}>
+        <section className={`${textColor} lg:py-12 lg:pb-52 min-h-screen w-full font-mplus flex flex-col justify-center items-center`}>
             <h1 className="text-center text-4xl font-bold mb-10">Projects</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-8 lg:px-16">
-                {projects.map((project, index) => (
+            <div className="pt-24 flex justify-center items-center">
+                <Card projects={projects} />
+
+                {/* {projects.map((project, index) => (
                     <div
                         className={`rounded-lg ${cardBgColor} shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-105`}
                         key={index}
@@ -53,7 +57,7 @@ const Projects = () => {
                             <p className={`${cardTextColor} text-sm leading-relaxed`}>{project.details}</p>
                         </div>
                     </div>
-                ))}
+                ))} */}
             </div>
         </section>
     );

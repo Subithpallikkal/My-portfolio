@@ -29,7 +29,7 @@ const BackToTop = () => {
       onClick={scrollToTop}
     >
       <div className="w-11 h-11  rounded-full border-4 border-orange-500 bg-transparent cursor-pointer flex items-center justify-center">
-        <i className="text-2xl text-orange-500">&#8593;</i> {/* Replace with your icon */}
+      <img width="48" height="48" src="https://img.icons8.com/pulsar-line/48/FD7E14/circled-up-2.png" alt="circled-up-2"/>{/* Replace with your icon */}
       </div>
     </div>
   );
